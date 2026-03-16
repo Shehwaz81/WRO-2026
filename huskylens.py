@@ -1,4 +1,3 @@
-
 ### Setup pupremote code
 from pupremote import  PUPRemoteSensor, SPIKE_ULTRASONIC
 from time import ticks_ms, sleep_ms
@@ -30,7 +29,7 @@ def hl(*argv):
         blocks = hlens.get_blocks()
         if blocks and len(blocks) == 12:
             ypos = []
-            for block in blocks 
+            for block in blocks:
                 ypos.append([block.y, block.x, block.ID]) # store y position and then block ID
 
             ypos = sorted(ypos, key=lambda y: y[0], reverse=True)
@@ -48,17 +47,17 @@ def hl(*argv):
             # sort code by x pos
             for i in range(3):
                 grid[i] = sorted(grid[i], key=lambda x : x[0]) # sort by x in acending order
-           
-           flat_grid = []
-           for row in grid:
-               for x, color in rows:
-                   flat_grid.append(color)
+
+            flat_grid = []
+            for row in grid:
+                for x, color in rows:
+                    flat_grid.append(color)
 
             return tuple(flat_grid)
 
         else:
             # No blocks found, return all zeroes.
-            return tuple(0,) * 12
+            return (0,0,0,0,0,0,0,0,0,0,0,0) 
 
 p=PUPRemoteSensor(sensor_id=SPIKE_ULTRASONIC, power=False)
 p.add_command('hl',from_hub_fmt="b", to_hub_fmt="BBBBBBBBBBBB")

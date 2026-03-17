@@ -27,7 +27,7 @@ def hl(*argv):
     else:
         # No mode asked, just get identified blocks.
         blocks = hlens.get_blocks()
-        if blocks and len(blocks) == 12:
+        if blocks and len(blocks) >= 12:
             ypos = []
             for block in blocks:
                 ypos.append([block.y, block.x, block.ID]) # store y position and then block ID
@@ -50,7 +50,7 @@ def hl(*argv):
 
             flat_grid = []
             for row in grid:
-                for x, color in rows:
+                for x, color in row:
                     flat_grid.append(color)
 
             return tuple(flat_grid)

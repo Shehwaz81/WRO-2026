@@ -22,7 +22,7 @@ def hl(*argv):
         # Pybricks tries to set a mode. Let's pass it on with set_alg()
         if not hlens.set_alg(argv[0]):
             # There was a problem setting the mode. Return id -1
-            return (0,0,0,0,-1)
+            return (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1)
             
     else:
         # No mode asked, just get identified blocks.
@@ -59,8 +59,8 @@ def hl(*argv):
             # No blocks found, return all zeroes.
             return (0,0,0,0,0,0,0,0,0,0,0,0) 
 
-p=PUPRemoteSensor(sensor_id=SPIKE_ULTRASONIC, power=False)
-p.add_command('hl',from_hub_fmt="b", to_hub_fmt="BBBBBBBBBBBB")
+pr=PUPRemoteSensor(sensor_id=SPIKE_ULTRASONIC, power=False)
+pr.add_command('hl',from_hub_fmt="b", to_hub_fmt="bbbbbbbbbbbb")
 ### End of pupremote setup code
 
 ### Main loop
